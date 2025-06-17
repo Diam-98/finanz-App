@@ -47,6 +47,7 @@ class TransactionController extends Controller
 
     public function store(StoreTransactionRequest $request)
     {
+
         // Obtenez les entités source et destination via la méthode polymorphe
         $source = $this->getEntity($request->source_type, $request->source_id);
         $destination = $this->getEntity($request->destination_type, $request->destination_id);
@@ -135,8 +136,6 @@ class TransactionController extends Controller
             default => throw new \InvalidArgumentException("Type d'entité non valide : $type"),
         };
     }
-
-
 
     /**
      * Display the specified resource.

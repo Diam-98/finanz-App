@@ -126,3 +126,24 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sourceSelect = document.getElementById('source');
+            const destinationSelect = document.getElementById('destination');
+            const sourceTypeInput = document.getElementById('source_type');
+            const destinationTypeInput = document.getElementById('destination_type');
+
+            sourceSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                sourceTypeInput.value = selectedOption.dataset.type || '';
+            });
+
+            destinationSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                destinationTypeInput.value = selectedOption.dataset.type || '';
+            });
+        });
+    </script>
+@endsection
